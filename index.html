@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominion Local Business Directory | Find Trusted Local Businesses Nationwide</title>
+<meta name="description" content="The premier directory for local businesses across all 50 states. Find trusted HVAC, plumbing, roofing, restaurants, and more. List your business free today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;
+  --navy2:#0F1E35;
+  --navy3:#162544;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --gold-dark:#A8832A;
+  --text:#F5F0E8;
+  --muted:#8B9AB0;
+  --border:#1E3050;
+  --white:#FFFFFF;
+  --green:#22C55E;
+  --red:#EF4444;
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{background:rgba(10,22,40,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);position:sticky;top:0;z-index:1000;padding:0 24px}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--gold-light)}
+.logo-sub{font-size:.7rem;color:var(--muted);font-weight:400;display:block;letter-spacing:.05em;text-transform:uppercase}
+.nav-links{display:flex;gap:32px;font-size:.88rem;color:var(--muted)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-weight:700;padding:10px 24px;border-radius:8px;font-size:.88rem;transition:.2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0A1628 0%,#0F1E35 40%,#162544 70%,#0A1628 100%);padding:100px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80') center/cover;opacity:.06;pointer-events:none}
+.hero::after{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 65%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 18px;border-radius:30px;margin-bottom:32px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.08;margin-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0 auto 48px;line-height:1.7}
+
+/* SEARCH */
+.search-box{max-width:760px;margin:0 auto 24px;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:8px;display:flex;gap:8px;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;background:transparent;border:none;outline:none;color:var(--text);font-size:1rem;padding:12px 16px;font-family:'Inter',sans-serif}
+.search-input::placeholder{color:var(--muted)}
+.search-select{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:.9rem;padding:10px 16px;outline:none;font-family:'Inter',sans-serif;min-width:140px}
+.search-select option{background:var(--navy2)}
+.search-btn{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-weight:800;padding:12px 32px;border-radius:10px;border:none;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;white-space:nowrap}
+.search-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+.hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:32px}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);display:block}
+.stat-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* CATEGORIES */
+.section{max-width:1400px;margin:0 auto;padding:72px 24px}
+.section-title{text-align:center;margin-bottom:48px}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;margin-bottom:12px}
+.section-title h2 span{color:var(--gold)}
+.section-title p{color:var(--muted);max-width:500px;margin:0 auto}
+.divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));margin:16px auto 0;border-radius:2px}
+
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.cat-card{background:var(--navy2);border:1px solid var(--border);border-radius:14px;padding:24px 16px;text-align:center;transition:.3s;cursor:pointer}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 32px rgba(201,168,76,.1)}
+.cat-icon{font-size:2rem;margin-bottom:10px;display:block}
+.cat-name{font-size:.85rem;font-weight:600;color:var(--text)}
+.cat-count{font-size:.75rem;color:var(--muted);margin-top:4px}
+
+/* PREMIUM LISTINGS */
+.premium-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.business-card{background:var(--navy2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.3s}
+.business-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.business-card.premium{border-color:rgba(201,168,76,.4)}
+.card-banner{height:160px;background:linear-gradient(135deg,var(--navy3),var(--navy2));position:relative;overflow:hidden}
+.card-banner img{width:100%;height:100%;object-fit:cover;opacity:.7}
+.card-banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(10,22,40,.9) 100%)}
+.premium-badge{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em}
+.unclaimed-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.6);color:var(--muted);font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid var(--border)}
+.card-body{padding:20px}
+.card-category{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:6px}
+.card-name{font-size:1.1rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+.card-location{font-size:.85rem;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.card-rating{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.stars{color:var(--gold);font-size:.9rem;letter-spacing:1px}
+.rating-num{font-weight:700;font-size:.9rem}
+.review-count{color:var(--muted);font-size:.82rem}
+.card-desc{color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{display:flex;gap:10px}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-weight:700;padding:10px 20px;border-radius:8px;font-size:.85rem;flex:1;text-align:center;transition:.2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,.3)}
+.btn-secondary{border:1px solid var(--border);color:var(--muted);padding:10px 16px;border-radius:8px;font-size:.85rem;transition:.2s}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+
+/* STATES */
+.states-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.state-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:20px;transition:.3s;cursor:pointer;display:flex;align-items:center;gap:14px}
+.state-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.state-flag{font-size:1.8rem}
+.state-info h3{font-size:.95rem;font-weight:700;margin-bottom:2px}
+.state-info p{font-size:.78rem;color:var(--muted)}
+
+/* CLAIM SECTION */
+.claim-section{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:64px 32px;text-align:center;margin:0 24px 72px;max-width:1400px;margin-left:auto;margin-right:auto}
+.claim-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-bottom:16px}
+.claim-section h2 span{color:var(--gold)}
+.claim-section p{color:var(--muted);max-width:560px;margin:0 auto 36px;font-size:1.05rem}
+.claim-features{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.claim-feature{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.claim-feature span{color:var(--gold);font-size:1rem}
+
+/* ARTICLES */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.article-card{background:var(--navy2);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s}
+.article-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.article-img{height:180px;background:linear-gradient(135deg,var(--navy3),var(--navy2));overflow:hidden}
+.article-img img{width:100%;height:100%;object-fit:cover;opacity:.8;transition:.3s}
+.article-card:hover .article-img img{opacity:1;transform:scale(1.05)}
+.article-body{padding:20px}
+.article-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:8px}
+.article-title{font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4}
+.article-excerpt{color:var(--muted);font-size:.85rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-meta{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:.78rem;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:56px 24px 28px}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo-text{font-size:1.4rem;display:block;margin-bottom:8px}
+.footer-brand p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:12px}
+.footer-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);font-size:.88rem;margin-bottom:10px;transition:.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--muted)}
+.footer-bottom a{color:var(--muted)}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* TRUST BAR */
+.trust-bar{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 24px}
+.trust-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap;gap:40px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.88rem}
+.trust-icon{font-size:1.2rem;color:var(--gold)}
+.trust-text strong{color:var(--text);display:block;font-size:.88rem}
+.trust-text span{color:var(--muted);font-size:.78rem}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📍</div>
+      <div>
+        <span class="logo-text">Dominion Local Business Directory</span>
+        <span class="logo-sub">Trusted Businesses Nationwide</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="states.html">Browse by State</a>
+      <a href="categories.html">Categories</a>
+      <a href="articles.html">Local Guides</a>
+      <a href="claim.html">Claim Listing</a>
+    </div>
+    <a href="claim.html" class="nav-cta">List Your Business Free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🏆 America's Premier Local Business Directory</div>
+  <h1>Find Trusted Local Businesses<br><span>In Your City, Your State.</span></h1>
+  <p class="hero-sub">From East Texas to New York City — discover verified local businesses across all 50 states. Read reviews, compare services, and connect with the best in your area.</p>
+
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Search businesses, services, or keywords...">
+    <select class="search-select">
+      <option>All Categories</option>
+      <option>HVAC & Air Conditioning</option>
+      <option>Plumbing</option>
+      <option>Electrical</option>
+      <option>Roofing</option>
+      <option>Restaurants</option>
+      <option>Auto Repair</option>
+      <option>Dentists</option>
+      <option>Law Firms</option>
+      <option>Real Estate</option>
+      <option>Web Design</option>
+      <option>AI Services</option>
+    </select>
+    <select class="search-select">
+      <option>All States</option>
+      <option>Texas</option>
+      <option>Florida</option>
+      <option>California</option>
+      <option>New York</option>
+      <option>Georgia</option>
+      <option>Tennessee</option>
+      <option>North Carolina</option>
+    </select>
+    <button class="search-btn">🔍 Search</button>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">10,000+</span><span class="stat-label">Business Listings</span></div>
+    <div class="stat"><span class="stat-num">50</span><span class="stat-label">States Covered</span></div>
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Cities</span></div>
+    <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Categories</span></div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">✅</span><div class="trust-text"><strong>Verified Listings</strong><span>Real businesses, real reviews</span></div></div>
+    <div class="trust-item"><span class="trust-icon">🆓</span><div class="trust-text"><strong>Free to List</strong><span>No credit card required</span></div></div>
+    <div class="trust-item"><span class="trust-icon">📍</span><div class="trust-text"><strong>All 50 States</strong><span>Nationwide coverage</span></div></div>
+    <div class="trust-item"><span class="trust-icon">⭐</span><div class="trust-text"><strong>Trusted Reviews</strong><span>Real customer feedback</span></div></div>
+    <div class="trust-item"><span class="trust-icon">🤖</span><div class="trust-text"><strong>AI Powered</strong><span>Smart business matching</span></div></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="section">
+  <div class="section-title">
+    <h2>Browse by <span>Category</span></h2>
+    <p>Find exactly what you need from our 50+ business categories</p>
+    <div class="divider"></div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><span class="cat-icon">🌡️</span><div class="cat-name">HVAC & Air Conditioning</div><div class="cat-count">2,400+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🔧</span><div class="cat-name">Plumbing</div><div class="cat-count">1,800+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">⚡</span><div class="cat-name">Electrical</div><div class="cat-count">1,600+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🏠</span><div class="cat-name">Roofing</div><div class="cat-count">1,400+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🍽️</span><div class="cat-name">Restaurants</div><div class="cat-count">3,200+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🚗</span><div class="cat-name">Auto Repair</div><div class="cat-count">2,100+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🦷</span><div class="cat-name">Dentists</div><div class="cat-count">1,900+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">👨‍⚕️</span><div class="cat-name">Doctors & Physicians</div><div class="cat-count">2,300+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">⚖️</span><div class="cat-name">Law Firms</div><div class="cat-count">1,700+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🏡</span><div class="cat-name">Real Estate</div><div class="cat-count">2,800+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">💇</span><div class="cat-name">Hair Salons</div><div class="cat-count">2,600+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">💪</span><div class="cat-name">Gyms & Fitness</div><div class="cat-count">1,200+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🌿</span><div class="cat-name">Landscaping</div><div class="cat-count">1,500+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🔨</span><div class="cat-name">General Contractors</div><div class="cat-count">1,800+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🌐</span><div class="cat-name">Web Design</div><div class="cat-count">800+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🤖</span><div class="cat-name">AI Services</div><div class="cat-count">400+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">📊</span><div class="cat-name">Accountants & CPA</div><div class="cat-count">1,400+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🧹</span><div class="cat-name">Cleaning Services</div><div class="cat-count">1,600+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🎨</span><div class="cat-name">Painting</div><div class="cat-count">1,100+ listings</div></div>
+    <div class="cat-card"><span class="cat-icon">🐛</span><div class="cat-name">Pest Control</div><div class="cat-count">900+ listings</div></div>
+  </div>
+</div>
+
+<!-- PREMIUM LISTINGS -->
+<div style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-title">
+      <h2>⭐ <span>Premium</span> Featured Businesses</h2>
+      <p>Our top-rated verified businesses trusted by thousands of customers nationwide</p>
+      <div class="divider"></div>
+    </div>
+    <div class="premium-grid">
+
+      <!-- Dominion Web Design Pro -->
+      <div class="business-card premium">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Web Design">
+          <div class="card-banner-overlay"></div>
+          <div class="premium-badge">⭐ PREMIUM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">🌐 Web Design</div>
+          <div class="card-name">Dominion Web Design Pro</div>
+          <div class="card-location">📍 East Texas, USA — Serving All 50 States</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(127 reviews)</span></div>
+          <div class="card-desc">Professional websites for local businesses starting at $497 one-time. Custom design, SEO optimized, AI chat included. Get your free demo built first — no payment required.</div>
+          <div class="card-footer">
+            <a href="https://dominionwebdesignpro.com" target="_blank" class="btn-primary">Visit Website</a>
+            <a href="tel:9036367511" class="btn-secondary">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dominion AI Agency -->
+      <div class="business-card premium">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="AI Agency">
+          <div class="card-banner-overlay"></div>
+          <div class="premium-badge">⭐ PREMIUM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">🤖 AI Services</div>
+          <div class="card-name">Dominion AI Agency</div>
+          <div class="card-location">📍 East Texas, USA — Serving All 50 States</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(143 reviews)</span></div>
+          <div class="card-desc">Full-service AI automation for local businesses. AI voice agents, CRM automation, lead generation, web design — all working together starting at $497/month.</div>
+          <div class="card-footer">
+            <a href="https://dominionaiagency.com" target="_blank" class="btn-primary">Visit Website</a>
+            <a href="tel:9036367511" class="btn-secondary">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Voice Agent Pros -->
+      <div class="business-card premium">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="AI Voice Agent">
+          <div class="card-banner-overlay"></div>
+          <div class="premium-badge">⭐ PREMIUM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">🤖 AI Services</div>
+          <div class="card-name">AI Voice Agent Pros</div>
+          <div class="card-location">📍 East Texas, USA — Serving All 50 States</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(98 reviews)</span></div>
+          <div class="card-desc">AI phone agents that answer every call 24/7, book appointments, and qualify leads automatically. Never miss a customer again. Starting at $297/month. Live in 48 hours.</div>
+          <div class="card-footer">
+            <a href="https://aivoiceagentpros.com" target="_blank" class="btn-primary">Visit Website</a>
+            <a href="tel:9036367511" class="btn-secondary">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dominion Review Pro -->
+      <div class="business-card premium">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Review Management">
+          <div class="card-banner-overlay"></div>
+          <div class="premium-badge">⭐ PREMIUM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">⭐ Review Management</div>
+          <div class="card-name">Dominion Review Pro</div>
+          <div class="card-location">📍 East Texas, USA — Serving All 50 States</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(76 reviews)</span></div>
+          <div class="card-desc">Automated Google review management. Get more 5-star reviews on autopilot via SMS and email. Boost your Google Maps ranking. Starting at $197/month.</div>
+          <div class="card-footer">
+            <a href="https://dominionreviewpro.com" target="_blank" class="btn-primary">Visit Website</a>
+            <a href="tel:9036367511" class="btn-secondary">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dominion Solar Pro -->
+      <div class="business-card premium">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Solar">
+          <div class="card-banner-overlay"></div>
+          <div class="premium-badge">⭐ PREMIUM</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">☀️ Solar Energy</div>
+          <div class="card-name">Dominion Solar Pro</div>
+          <div class="card-location">📍 East Texas, USA — Serving All 50 States</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(54 reviews)</span></div>
+          <div class="card-desc">Solar energy solutions for homeowners and businesses. Save money on electricity and go green with Dominion Solar Pro. Quality solar products and expert installation.</div>
+          <div class="card-footer">
+            <a href="https://dominionsolarpro.com" target="_blank" class="btn-primary">Visit Website</a>
+            <a href="tel:9036367511" class="btn-secondary">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Unclaimed Business -->
+      <div class="business-card">
+        <div class="card-banner">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="HVAC">
+          <div class="card-banner-overlay"></div>
+          <div class="unclaimed-badge">⚠️ Unclaimed Listing</div>
+        </div>
+        <div class="card-body">
+          <div class="card-category">🌡️ HVAC & Air Conditioning</div>
+          <div class="card-name">Houston HVAC Masters</div>
+          <div class="card-location">📍 Houston, Texas</div>
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="review-count">(567 reviews)</span></div>
+          <div class="card-desc">This listing has not been claimed yet. Is this your business? Claim it free and take control of how customers find you online.</div>
+          <div class="card-footer">
+            <a href="claim.html" class="btn-primary">Claim This Listing Free</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- STATES -->
+<div class="section">
+  <div class="section-title">
+    <h2>Browse by <span>State</span></h2>
+    <p>Find local businesses in every state across America</p>
+    <div class="divider"></div>
+  </div>
+  <div class="states-grid">
+    <a href="states/texas.html" class="state-card"><span class="state-flag">🤠</span><div class="state-info"><h3>Texas</h3><p>2,400+ listings</p></div></a>
+    <a href="states/florida.html" class="state-card"><span class="state-flag">🌴</span><div class="state-info"><h3>Florida</h3><p>1,800+ listings</p></div></a>
+    <a href="states/california.html" class="state-card"><span class="state-flag">🌞</span><div class="state-info"><h3>California</h3><p>2,100+ listings</p></div></a>
+    <a href="states/new-york.html" class="state-card"><span class="state-flag">🗽</span><div class="state-info"><h3>New York</h3><p>1,900+ listings</p></div></a>
+    <a href="states/georgia.html" class="state-card"><span class="state-flag">🍑</span><div class="state-info"><h3>Georgia</h3><p>1,200+ listings</p></div></a>
+    <a href="states/tennessee.html" class="state-card"><span class="state-flag">🎸</span><div class="state-info"><h3>Tennessee</h3><p>900+ listings</p></div></a>
+    <a href="states/north-carolina.html" class="state-card"><span class="state-flag">🏔️</span><div class="state-info"><h3>North Carolina</h3><p>1,100+ listings</p></div></a>
+    <a href="states/arizona.html" class="state-card"><span class="state-flag">🌵</span><div class="state-info"><h3>Arizona</h3><p>1,000+ listings</p></div></a>
+    <a href="states/illinois.html" class="state-card"><span class="state-flag">🌆</span><div class="state-info"><h3>Illinois</h3><p>1,400+ listings</p></div></a>
+    <a href="states/ohio.html" class="state-card"><span class="state-flag">🏈</span><div class="state-info"><h3>Ohio</h3><p>1,100+ listings</p></div></a>
+    <a href="states/colorado.html" class="state-card"><span class="state-flag">⛰️</span><div class="state-info"><h3>Colorado</h3><p>800+ listings</p></div></a>
+    <a href="states/washington.html" class="state-card"><span class="state-flag">🌲</span><div class="state-info"><h3>Washington</h3><p>900+ listings</p></div></a>
+    <a href="states/nevada.html" class="state-card"><span class="state-flag">🎰</span><div class="state-info"><h3>Nevada</h3><p>700+ listings</p></div></a>
+    <a href="states/louisiana.html" class="state-card"><span class="state-flag">🎺</span><div class="state-info"><h3>Louisiana</h3><p>800+ listings</p></div></a>
+    <a href="states/michigan.html" class="state-card"><span class="state-flag">🚗</span><div class="state-info"><h3>Michigan</h3><p>1,000+ listings</p></div></a>
+    <a href="states/pennsylvania.html" class="state-card"><span class="state-flag">🔔</span><div class="state-info"><h3>Pennsylvania</h3><p>1,200+ listings</p></div></a>
+    <a href="states/massachusetts.html" class="state-card"><span class="state-flag">🦞</span><div class="state-info"><h3>Massachusetts</h3><p>900+ listings</p></div></a>
+    <a href="states/virginia.html" class="state-card"><span class="state-flag">🏛️</span><div class="state-info"><h3>Virginia</h3><p>1,000+ listings</p></div></a>
+    <a href="states/minnesota.html" class="state-card"><span class="state-flag">❄️</span><div class="state-info"><h3>Minnesota</h3><p>800+ listings</p></div></a>
+    <a href="states/missouri.html" class="state-card"><span class="state-flag">🌉</span><div class="state-info"><h3>Missouri</h3><p>900+ listings</p></div></a>
+    <a href="states/indiana.html" class="state-card"><span class="state-flag">🏎️</span><div class="state-info"><h3>Indiana</h3><p>800+ listings</p></div></a>
+    <a href="states/wisconsin.html" class="state-card"><span class="state-flag">🧀</span><div class="state-info"><h3>Wisconsin</h3><p>700+ listings</p></div></a>
+    <a href="states/oklahoma.html" class="state-card"><span class="state-flag">🌪️</span><div class="state-info"><h3>Oklahoma</h3><p>700+ listings</p></div></a>
+    <a href="states/kentucky.html" class="state-card"><span class="state-flag">🏇</span><div class="state-info"><h3>Kentucky</h3><p>700+ listings</p></div></a>
+    <a href="states/south-carolina.html" class="state-card"><span class="state-flag">🌺</span><div class="state-info"><h3>South Carolina</h3><p>700+ listings</p></div></a>
+    <a href="states/alabama.html" class="state-card"><span class="state-flag">🌹</span><div class="state-info"><h3>Alabama</h3><p>700+ listings</p></div></a>
+    <a href="states/maryland.html" class="state-card"><span class="state-flag">🦀</span><div class="state-info"><h3>Maryland</h3><p>800+ listings</p></div></a>
+    <a href="states/utah.html" class="state-card"><span class="state-flag">🏜️</span><div class="state-info"><h3>Utah</h3><p>600+ listings</p></div></a>
+    <a href="states/oregon.html" class="state-card"><span class="state-flag">🌲</span><div class="state-info"><h3>Oregon</h3><p>700+ listings</p></div></a>
+    <a href="states/arkansas.html" class="state-card"><span class="state-flag">💎</span><div class="state-info"><h3>Arkansas</h3><p>600+ listings</p></div></a>
+    <a href="states/mississippi.html" class="state-card"><span class="state-flag">🎵</span><div class="state-info"><h3>Mississippi</h3><p>500+ listings</p></div></a>
+    <a href="states/iowa.html" class="state-card"><span class="state-flag">🌽</span><div class="state-info"><h3>Iowa</h3><p>600+ listings</p></div></a>
+    <a href="states/nebraska.html" class="state-card"><span class="state-flag">🌾</span><div class="state-info"><h3>Nebraska</h3><p>500+ listings</p></div></a>
+    <a href="states/new-mexico.html" class="state-card"><span class="state-flag">🌶️</span><div class="state-info"><h3>New Mexico</h3><p>500+ listings</p></div></a>
+    <a href="states/idaho.html" class="state-card"><span class="state-flag">🥔</span><div class="state-info"><h3>Idaho</h3><p>400+ listings</p></div></a>
+    <a href="states/montana.html" class="state-card"><span class="state-flag">🦌</span><div class="state-info"><h3>Montana</h3><p>400+ listings</p></div></a>
+    <a href="states/alaska.html" class="state-card"><span class="state-flag">🐻</span><div class="state-info"><h3>Alaska</h3><p>300+ listings</p></div></a>
+    <a href="states/hawaii.html" class="state-card"><span class="state-flag">🌺</span><div class="state-info"><h3>Hawaii</h3><p>300+ listings</p></div></a>
+    <a href="states.html" class="state-card" style="border-color:rgba(201,168,76,.3)"><span class="state-flag">🗺️</span><div class="state-info"><h3>All 50 States</h3><p>View complete list →</p></div></a>
+  </div>
+</div>
+
+<!-- CLAIM SECTION -->
+<div class="claim-section">
+  <h2>Is Your Business <span>Already Listed?</span></h2>
+  <p>We may have already created a listing for your business. Claim it free before a competitor does and take control of how customers find you online.</p>
+  <div class="claim-features">
+    <div class="claim-feature"><span>✅</span> Free basic listing forever</div>
+    <div class="claim-feature"><span>✅</span> Upload your own photos</div>
+    <div class="claim-feature"><span>✅</span> Password protected dashboard</div>
+    <div class="claim-feature"><span>✅</span> Track your listing views</div>
+    <div class="claim-feature"><span>✅</span> Respond to customer reviews</div>
+    <div class="claim-feature"><span>✅</span> No credit card required</div>
+  </div>
+  <a href="claim.html" class="nav-cta" style="display:inline-block;padding:16px 40px;font-size:1.05rem">Claim Your Free Listing Now →</a>
+</div>
+
+<!-- LOCAL GUIDES -->
+<div style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-title">
+      <h2>Local <span>Business Guides</span></h2>
+      <p>Discover the best cities, attractions, and business scenes across America</p>
+      <div class="divider"></div>
+    </div>
+    <div class="articles-grid">
+      <a href="articles/texas.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&q=80" alt="Texas"></div>
+        <div class="article-body">
+          <div class="article-tag">🤠 Texas</div>
+          <div class="article-title">The Ultimate Guide to Business & Attractions in the Lone Star State</div>
+          <div class="article-excerpt">From East Texas pine forests to the Gulf Coast beaches, discover why Texas is the best state to live, work, and do business in America.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>8 min read</span></div>
+        </div>
+      </a>
+      <a href="articles/florida.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=600&q=80" alt="Florida"></div>
+        <div class="article-body">
+          <div class="article-tag">🌴 Florida</div>
+          <div class="article-title">Florida's Best Cities for Business, Tourism & Local Services</div>
+          <div class="article-excerpt">From Miami's vibrant culture to Orlando's theme parks — Florida is more than beaches. Discover the best local businesses serving the Sunshine State.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>7 min read</span></div>
+        </div>
+      </a>
+      <a href="articles/georgia.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?w=600&q=80" alt="Georgia"></div>
+        <div class="article-body">
+          <div class="article-tag">🍑 Georgia</div>
+          <div class="article-title">Georgia on My Mind: Top Businesses & Attractions in the Peach State</div>
+          <div class="article-excerpt">Atlanta leads the South in business and culture. Discover Georgia's best cities, top attractions, and the local businesses that make the Peach State shine.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>6 min read</span></div>
+        </div>
+      </a>
+      <a href="articles/new-york.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=600&q=80" alt="New York"></div>
+        <div class="article-body">
+          <div class="article-tag">🗽 New York</div>
+          <div class="article-title">New York State of Business: Finding Local Services in the Empire State</div>
+          <div class="article-excerpt">Beyond the bright lights of New York City, the Empire State is home to thousands of incredible local businesses serving communities from Buffalo to Brooklyn.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>7 min read</span></div>
+        </div>
+      </a>
+      <a href="articles/california.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=600&q=80" alt="California"></div>
+        <div class="article-body">
+          <div class="article-tag">🌞 California</div>
+          <div class="article-title">California Dreaming: The Golden State's Best Local Businesses & Destinations</div>
+          <div class="article-excerpt">From Silicon Valley to Hollywood, San Francisco to San Diego — California is the world's 5th largest economy and home to millions of incredible local businesses.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>8 min read</span></div>
+        </div>
+      </a>
+      <a href="articles/tennessee.html" class="article-card">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1545412122-b2f1e5e94cf1?w=600&q=80" alt="Tennessee"></div>
+        <div class="article-body">
+          <div class="article-tag">🎸 Tennessee</div>
+          <div class="article-title">Tennessee: Music, Mountains & the Best Local Businesses in the Mid-South</div>
+          <div class="article-excerpt">Nashville's honky-tonks, Memphis blues, and Smoky Mountain beauty make Tennessee one of America's most exciting states for business and tourism alike.</div>
+          <div class="article-meta"><span>📅 2025</span><span>•</span><span>6 min read</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="logo-text" style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold-light)">Dominion Local Business Directory</span>
+        <p>America's premier local business directory. Connecting customers with trusted local businesses across all 50 states since 2025. Part of the Dominion Brand Family.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Directory</h4>
+        <a href="states.html">Browse by State</a>
+        <a href="categories.html">Browse by Category</a>
+        <a href="articles.html">Local Guides</a>
+        <a href="claim.html">Claim Your Listing</a>
+        <a href="advertise.html">Advertise With Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Dominion Brands</h4>
+        <a href="https://dominionwebdesignpro.com" target="_blank">Dominion Web Design Pro</a>
+        <a href="https://dominionaiagency.com" target="_blank">Dominion AI Agency</a>
+        <a href="https://aivoiceagentpros.com" target="_blank">AI Voice Agent Pros</a>
+        <a href="https://dominionreviewpro.com" target="_blank">Dominion Review Pro</a>
+        <a href="https://dominionsolarpro.com" target="_blank">Dominion Solar Pro</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Dominion Local Business Directory. All rights reserved. · East Texas, USA</span>
+      <span>Part of the <a href="https://dominionaiagency.com">Dominion Brand Family</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

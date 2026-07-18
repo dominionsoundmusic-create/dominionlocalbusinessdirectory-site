@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Business Directory | Find Local Businesses in Texas | Dominion</title>
+<meta name="description" content="Find trusted local businesses across Texas. Browse HVAC, plumbing, roofing, restaurants, and more in Dallas, Houston, Austin, San Antonio and every Texas city.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0A1628;--navy2:#0F1E35;--navy3:#162544;--gold:#C9A84C;--gold-light:#E8C97A;--gold-dark:#A8832A;--text:#F5F0E8;--muted:#8B9AB0;--border:#1E3050}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{background:rgba(10,22,40,.98);border-bottom:1px solid rgba(201,168,76,.15);position:sticky;top:0;z-index:1000;padding:0 24px}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold-light)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-weight:700;padding:10px 24px;border-radius:8px;font-size:.88rem}
+.hero{position:relative;height:420px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,.5) 0%,rgba(10,22,40,.85) 70%,rgba(10,22,40,1) 100%);display:flex;align-items:flex-end;padding:48px 24px}
+.hero-content{max-width:1400px;margin:0 auto;width:100%}
+.breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:12px}
+.breadcrumb a{color:var(--gold)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;margin-bottom:8px}
+h1 span{color:var(--gold)}
+.hero-sub{color:var(--muted);font-size:1rem;max-width:600px}
+.section{max-width:1400px;margin:0 auto;padding:56px 24px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px}
+.section h2 span{color:var(--gold)}
+.section-desc{color:var(--muted);margin-bottom:32px}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));margin:12px 0 28px;border-radius:2px}
+.cities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:48px}
+.city-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:18px;transition:.3s;cursor:pointer}
+.city-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.city-name{font-weight:700;font-size:.95rem;margin-bottom:4px}
+.city-count{font-size:.78rem;color:var(--muted)}
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.biz-card{background:var(--navy2);border:1px solid var(--border);border-radius:14px;padding:22px;transition:.3s}
+.biz-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.biz-card.premium{border-color:rgba(201,168,76,.4)}
+.biz-category{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:6px}
+.biz-name{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.biz-location{font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.stars{color:var(--gold);font-size:.85rem}
+.rating-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.rating-num{font-weight:700;font-size:.85rem}
+.review-count{color:var(--muted);font-size:.78rem}
+.premium-tag{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-size:.68rem;font-weight:800;padding:3px 10px;border-radius:12px;margin-bottom:8px}
+.unclaimed-tag{display:inline-block;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-size:.68rem;padding:3px 10px;border-radius:12px;margin-bottom:8px}
+.biz-btn{display:block;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:.85rem;margin-top:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);transition:.2s}
+.biz-btn:hover{transform:translateY(-2px)}
+.article-box{background:var(--navy2);border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:40px;margin-top:56px}
+.article-box h2{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:16px}
+.article-box h2 span{color:var(--gold)}
+.article-box p{color:var(--muted);margin-bottom:16px;line-height:1.8}
+.article-box h3{font-size:1.1rem;font-weight:700;margin:24px 0 10px;color:var(--gold-light)}
+.highlight-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.highlight-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:.92rem}
+.highlight-list li::before{content:'⭐';flex-shrink:0}
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:28px 24px;text-align:center;font-size:.82rem;color:var(--muted)}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html"><span class="logo-text">📍 Dominion Local Business Directory</span></a>
+    <a href="../claim.html" class="nav-cta">List Your Business Free</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1920&q=80" alt="Texas skyline">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> → Texas</div>
+      <h1>🤠 Texas <span>Business Directory</span></h1>
+      <p class="hero-sub">Find trusted local businesses across the Lone Star State — from East Texas to El Paso, Dallas to the Gulf Coast.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Browse Texas <span>by City</span></h2>
+  <div class="divider"></div>
+  <div class="cities-grid">
+    <div class="city-card"><div class="city-name">Houston</div><div class="city-count">450+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Dallas</div><div class="city-count">380+ businesses</div></div>
+    <div class="city-card"><div class="city-name">San Antonio</div><div class="city-count">340+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Austin</div><div class="city-count">310+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Fort Worth</div><div class="city-count">280+ businesses</div></div>
+    <div class="city-card"><div class="city-name">El Paso</div><div class="city-count">220+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Tyler</div><div class="city-count">180+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Nacogdoches</div><div class="city-count">120+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Lufkin</div><div class="city-count">110+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Longview</div><div class="city-count">140+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Lubbock</div><div class="city-count">200+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Waco</div><div class="city-count">170+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Corpus Christi</div><div class="city-count">190+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Plano</div><div class="city-count">210+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Frisco</div><div class="city-count">160+ businesses</div></div>
+    <div class="city-card"><div class="city-name">McKinney</div><div class="city-count">150+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Beaumont</div><div class="city-count">140+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Texarkana</div><div class="city-count">100+ businesses</div></div>
+    <div class="city-card"><div class="city-name">Amarillo</div><div class="city-count">180+ businesses</div></div>
+    <div class="city-card"><div class="city-name">All Texas Cities →</div><div class="city-count">500+ cities</div></div>
+  </div>
+
+  <h2>Featured <span>Texas Businesses</span></h2>
+  <div class="divider"></div>
+  <div class="biz-grid">
+    <div class="biz-card premium">
+      <div class="premium-tag">⭐ PREMIUM</div>
+      <div class="biz-category">🌐 Web Design</div>
+      <div class="biz-name">Dominion Web Design Pro</div>
+      <div class="biz-location">📍 Nacogdoches, TX — Serving All of Texas</div>
+      <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(127 reviews)</span></div>
+      <p style="color:var(--muted);font-size:.85rem">Professional websites for Texas businesses starting at $497. Custom design, SEO, AI chat. Free demo built first.</p>
+      <a href="https://dominionwebdesignpro.com" target="_blank" class="biz-btn">Visit Website</a>
+    </div>
+    <div class="biz-card premium">
+      <div class="premium-tag">⭐ PREMIUM</div>
+      <div class="biz-category">🤖 AI Services</div>
+      <div class="biz-name">Dominion AI Agency</div>
+      <div class="biz-location">📍 Nacogdoches, TX — Serving All of Texas</div>
+      <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(143 reviews)</span></div>
+      <p style="color:var(--muted);font-size:.85rem">Full AI automation for Texas businesses. Voice agents, CRM, lead gen — all in one system from $497/month.</p>
+      <a href="https://dominionaiagency.com" target="_blank" class="biz-btn">Visit Website</a>
+    </div>
+    <div class="biz-card premium">
+      <div class="premium-tag">⭐ PREMIUM</div>
+      <div class="biz-category">🤖 AI Services</div>
+      <div class="biz-name">AI Voice Agent Pros</div>
+      <div class="biz-location">📍 Nacogdoches, TX — Serving All of Texas</div>
+      <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-num">5.0</span><span class="review-count">(98 reviews)</span></div>
+      <p style="color:var(--muted);font-size:.85rem">AI that answers every call 24/7, books appointments, qualifies leads. Never miss a Texas customer. From $297/month.</p>
+      <a href="https://aivoiceagentpros.com" target="_blank" class="biz-btn">Visit Website</a>
+    </div>
+    <div class="biz-card">
+      <div class="unclaimed-tag">⚠️ Unclaimed</div>
+      <div class="biz-category">🌡️ HVAC</div>
+      <div class="biz-name">Houston HVAC Masters</div>
+      <div class="biz-location">📍 Houston, TX</div>
+      <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="review-count">(567 reviews)</span></div>
+      <a href="../claim.html" class="biz-btn">Claim This Listing Free</a>
+    </div>
+    <div class="biz-card">
+      <div class="unclaimed-tag">⚠️ Unclaimed</div>
+      <div class="biz-category">🔧 Plumbing</div>
+      <div class="biz-name">Dallas Premier Plumbing</div>
+      <div class="biz-location">📍 Dallas, TX</div>
+      <div class="rating-row"><span class="stars">★★★★½</span><span class="rating-num">4.7</span><span class="review-count">(312 reviews)</span></div>
+      <a href="../claim.html" class="biz-btn">Claim This Listing Free</a>
+    </div>
+    <div class="biz-card">
+      <div class="unclaimed-tag">⚠️ Unclaimed</div>
+      <div class="biz-category">🏠 Roofing</div>
+      <div class="biz-name">San Antonio Roofing Kings</div>
+      <div class="biz-location">📍 San Antonio, TX</div>
+      <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-num">4.8</span><span class="review-count">(234 reviews)</span></div>
+      <a href="../claim.html" class="biz-btn">Claim This Listing Free</a>
+    </div>
+  </div>
+
+  <div class="article-box">
+    <h2>The Ultimate Guide to <span>Business & Life in Texas</span></h2>
+    <p>Texas is more than a state — it's a way of life. The Lone Star State is the second largest state in America by both area and population, home to over 30 million people and some of the most diverse landscapes, cultures, and business opportunities in the country.</p>
+
+    <h3>🏙️ Major Texas Cities</h3>
+    <p>Texas is home to four of America's ten largest cities — Houston, San Antonio, Dallas, and Austin. Each offers a unique business environment and lifestyle:</p>
+    <ul class="highlight-list">
+      <li><strong>Houston</strong> — The Energy Capital of the World. Home to NASA and the Port of Houston, the fourth largest city in America is a global business hub.</li>
+      <li><strong>Dallas-Fort Worth</strong> — The DFW Metroplex is one of the fastest growing regions in America, with more Fortune 500 headquarters than any metro outside New York.</li>
+      <li><strong>Austin</strong> — The Silicon Hills. Tech giants like Tesla, Apple, and Oracle have relocated headquarters here. A booming creative and tech economy.</li>
+      <li><strong>San Antonio</strong> — Military City USA. Home to the Alamo, the River Walk, and a rapidly growing economy driven by healthcare, tourism, and defense.</li>
+    </ul>
+
+    <h3>🌲 East Texas — The Piney Woods</h3>
+    <p>East Texas is a special region defined by its towering pine forests, rolling hills, and tight-knit communities. Cities like Nacogdoches (the oldest town in Texas), Lufkin, Tyler, and Longview anchor this region known for its authentic Texas hospitality and small business spirit.</p>
+    <ul class="highlight-list">
+      <li><strong>Nacogdoches</strong> — The oldest town in Texas, home to Stephen F. Austin State University and a thriving local business community.</li>
+      <li><strong>Tyler</strong> — The Rose Capital of America. Known for its beautiful rose gardens and strong healthcare and manufacturing sectors.</li>
+      <li><strong>Lufkin</strong> — Deep East Texas hub known for its forestry industry and growing retail and healthcare sectors.</li>
+    </ul>
+
+    <h3>🎯 Why Texas is the Best State for Business</h3>
+    <ul class="highlight-list">
+      <li>No state income tax — keep more of what you earn</li>
+      <li>Business-friendly regulations and low cost of doing business</li>
+      <li>Massive consumer market of 30+ million people</li>
+      <li>World-class infrastructure and logistics</li>
+      <li>Diverse economy — energy, tech, healthcare, agriculture, and more</li>
+      <li>Year-round warm weather and outdoor lifestyle</li>
+    </ul>
+
+    <h3>🌟 Top Texas Attractions</h3>
+    <ul class="highlight-list">
+      <li>The Alamo — San Antonio</li>
+      <li>Space Center Houston</li>
+      <li>Big Bend National Park</li>
+      <li>South Padre Island</li>
+      <li>Sixth Floor Museum at Dealey Plaza — Dallas</li>
+      <li>The River Walk — San Antonio</li>
+      <li>Guadalupe Mountains National Park</li>
+      <li>Galveston Island</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p><a href="../index.html">Home</a> · <a href="../states.html">All States</a> · <a href="../claim.html">Claim Your Listing</a></p>
+  <p style="margin-top:8px">© 2025 Dominion Local Business Directory · East Texas, USA</p>
+</footer>
+</body>
+</html>
