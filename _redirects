@@ -3,3 +3,9 @@
 /list-your-business /claim.html 301
 /claim-listing /claim.html 301
 /add-business /claim.html 301
+
+# Sep 11 2026 - templated city pages retired; wildcards send them to the hub.
+/articles/*  /articles/  301
+/cities/*  /cities/  301
+/services/*  /services/  301
+/states/*  /states/  301
